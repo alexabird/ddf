@@ -83,6 +83,13 @@ jobs:
       - name: Full build (excluding itests)
         run: mvn clean install $MAVEN_CLI_OPTS -P !itests
 
+      - name: Build itest dependencies
+        run: |
+          mvn install $MAVEN_CLI_OPTS \
+            -pl distribution/test/itests/test-itests-common,distribution/test/itests/test-itests-dependencies-app \
+            -am \
+            -DskipTests=true
+
       - name: Run DDF Core integration tests
         run: |
           unset JAVA_TOOL_OPTIONS
