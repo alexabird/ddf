@@ -252,7 +252,9 @@ jobs:
           mvn deploy $MAVEN_CLI_OPTS \
             -DskipStatic=true \
             -DskipTests=true \
-            -DretryFailedDeploymentCount=10
+            -DretryFailedDeploymentCount=10 \
+            -Dreleases.repository.url=https://maven.pkg.github.com/codice/ddf \
+            -Dsnapshots.repository.url=https://maven.pkg.github.com/codice/ddf
 
   # Slack notification (non-PR builds only)
   notify-slack:
