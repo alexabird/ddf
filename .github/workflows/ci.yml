@@ -8,7 +8,7 @@ on:
   pull_request_target:
     branches:
       - master
-      - fork-ci
+      - 'fork-ci'
       - '[0-9]+.[0-9]+.x'
   schedule:
     # Nightly build on master (same as Jenkins: H H(17-19) * * *)
