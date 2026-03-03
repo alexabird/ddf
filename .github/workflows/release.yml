@@ -26,6 +26,9 @@ on:
         description: 'Test run only'
         default: false
         type: boolean
+      resumeFrom:
+        description: 'Resume failed deploy from module (e.g. solr). Leave blank for normal release.'
+        required: false
 
 permissions:
   contents: read
@@ -43,6 +46,7 @@ jobs:
       test_run: ${{ inputs.testRun }}
       jdk_version_map: '{"master":"17","2.29.x":"17","2.28.x":"11","2.27.x":"11","default":"11"}'
       artifact_path: 'distribution/ddf/target'
+      resume_from: ${{ inputs.resumeFrom }}
       author_name: 'Codice Release Manager'
       author_email: 'info@codicefoundation.org'
     secrets:
